@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: visual-digest
+    env: docker
+    repo: https://github.com/your-repo/visual-digest
+    plan: free
+    autoDeploy: false
+    dockerCommand: docker-compose up

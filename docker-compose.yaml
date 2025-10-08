@@ -1,0 +1,62 @@
+version: '3.8'
+services:
+  agent-games:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - CATEGORY=Games
+      - HUGGINGFACE_MODEL=meta-llama/LLaMA-7B
+    volumes:
+      - ./output:/app/output
+  agent-productivity:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - CATEGORY=Productivity
+      - HUGGINGFACE_MODEL=meta-llama/LLaMA-7B
+    volumes:
+      - ./output:/app/output
+  agent-social:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - CATEGORY=Social
+      - HUGGINGFACE_MODEL=meta-llama/LLaMA-7B
+    volumes:
+      - ./output:/app/output
+  agent-health:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - CATEGORY=Health
+      - HUGGINGFACE_MODEL=meta-llama/LLaMA-7B
+    volumes:
+      - ./output:/app/output
+  agent-education:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - CATEGORY=Education
+      - HUGGINGFACE_MODEL=meta-llama/LLaMA-7B
+    volumes:
+      - ./output:/app/output
+  magazine-compiler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./output:/app/output
+    command: ["python", "compile_magazine.py"]
+  scheduler:
+    image: alpine
+    volumes:
+      - ./output:/app/output
+    command: >
+      sh -c "echo '0 0 * * 1 python /app/output/compile_magazine.py' > /etc/crontabs/root && crond -f"
+volumes:
+  output:
