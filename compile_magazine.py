@@ -6,8 +6,139 @@ from web3 import Web3
 
 # Connect to Sepolia testnet (replace with your Infura/Alchemy key or local node)
 web3 = Web3(Web3.HTTPProvider('https://sepolia.infura.io/v3/YOUR_INFURA_KEY'))
-contract_address = "0xYOUR_CONTRACT_ADDRESS"  # Deployed DAO contract
-contract_abi = [...]  # Add ABI from compiled VisualDigestDAO.sol
+contract_address = "0x9A407C82FDdd646d4ca23DF1Cf25770793340d2C"  # Deployed DAO contract
+contract_abi = [[
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_member",
+				"type": "address"
+			}
+		],
+		"name": "addMember",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "outputId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "approve",
+				"type": "bool"
+			}
+		],
+		"name": "voteOnOutput",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "approvedOutputs",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "outputId",
+				"type": "uint256"
+			}
+		],
+		"name": "isOutputApproved",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "members",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "votes",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]]  # Add ABI from compiled VisualDigestDAO.sol
 contract = web3.eth.contract(address=contract_address, abi=contract_abi)
 
 def compile_magazine():
