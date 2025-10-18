@@ -5,7 +5,8 @@ from datetime import datetime
 from web3 import Web3
 
 # Connect to Sepolia testnet (replace with your Infura/Alchemy key or local node)
-web3 = Web3(Web3.HTTPProvider('https://sepolia.infura.io/v3/YOUR_INFURA_KEY'))
+web3 = Web3(Web3.HTTPProvider('https://sepolia.infura.io/v3/9862ef1feab24e0b9cb44e13d38f91d9'))
+#https://sepolia.infura.io/v3/9862ef1feab24e0b9cb44e13d38f91d9
 contract_address = "0x9A407C82FDdd646d4ca23DF1Cf25770793340d2C"  # Deployed DAO contract
 contract_abi = [[
 	{
